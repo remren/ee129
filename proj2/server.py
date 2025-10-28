@@ -31,6 +31,16 @@ while True:
         # Receives the request message from the client
         message = connectionSocket.recv(1024).decode()
 
+        ## Examine POST message (attempt)
+        # print("Incoming Request:", message)
+        usrpwd = None
+        if message.startswith("POST"):
+            # print("POST message")
+            # print(message.split())
+            ## Retrieve last item in message, username and pwd
+            usrpwd = message.split()[-1]
+            print(usrpwd)
+
         # Extract the path of the requested object from the message
         # The path is the second part of HTTP header, identified by [1]
         filename = message.split()[1]

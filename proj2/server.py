@@ -39,7 +39,7 @@ while True:
             # print(message.split())
             ## Retrieve last item in message, username and pwd
             usrpwd = message.split()[-1]
-            print(usrpwd)
+            print(usrpwd.split("&"))
 
         # Extract the path of the requested object from the message
         # The path is the second part of HTTP header, identified by [1]
@@ -53,14 +53,14 @@ while True:
         content_type = None
         if filename.endswith('.png'):
             content_type = 'image/png'
-            print('test!')
+            # print('test!')
         else:
             content_type = 'text/html'
 
         # For images, open file in binary mode; for HTML, text mode
         if content_type.startswith('image/png'):
             # to eliminate first slash
-            print(filename[1:])
+            # print(filename[1:])
             # open image file
             with open(filename[1:], 'rb') as f:
                 outputdata = f.read()

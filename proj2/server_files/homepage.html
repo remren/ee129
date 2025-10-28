@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EE129 Project 2</title>
+</head>
+<body>
+    <h1>EE129 Project 2 Color Picker!</h1>
+        <form action="/color" method="GET">
+            <label>Please choose your color:</label>
+            <select id="colors" name="colors">
+                <option value="green" selected>Green</option> <!-- default selection -->
+                <option value="red">Red</option>
+            </select>
+            <button type="submit">Submit</button>
+        </form>
+    <p><img src="/server_files/fightpad-icon.png" alt="hunter the good doog"></p>
+    <form action="/login" method="GET">
+        <input type="hidden" name="action" value="login">
+        <button type="submit">Login Page</button>
+    </form>
+</body>
+</html>

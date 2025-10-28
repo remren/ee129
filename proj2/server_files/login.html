@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EE129 Project 2: Login Page</title>
+</head>
+<body>
+    <h1>EE129 Project 2: Login Page</h1>
+    <form action="/login" method="POST">
+        <p>Username:
+          <input type="text" name="username" placeholder="">
+        </p>
+        <p>
+        <label>Password:</label>
+          <input type="password" name="password" placeholder="">
+        </p>
+      <p><button type="submit">Login</button></p>
+    </form>
+    <form action="/return" method="GET">
+        <input type="hidden" name="action" value="homepage">
+        <button type="submit">Return to Homepage</button>
+    </form>
+</body>
+</html>

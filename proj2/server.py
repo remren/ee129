@@ -30,7 +30,8 @@ while True:
     try:
         # Receives the request message from the client
         message = connectionSocket.recv(1024).decode()
-
+        
+        
         ## Examine POST message (attempt)
         # print("Incoming Request:", message)
         usrpwd = None
@@ -38,9 +39,17 @@ while True:
             # print("POST message")
             # print(message.split())
             ## Retrieve last item in message, username and pwd
-            usrpwd = message.split()[-1]
-            print(usrpwd.split("&"))
-
+            usrpwd = message.split()[-1].split("&")
+            usn = usrpwd[0].split("=")[-1]
+            pwd = usrpwd[1].split("=")[-1]
+            print("USN:", usn, "PWD:", pwd)
+            if usn == "fish" and pwd == "morefish":
+                print("yay")
+            else:
+                connectionSocket.send("HTTP/1.1 401 Unauthorized\r\n\r\n".encode())
+                connectionSocket.send("<html><head></head><body><h1>401 Unauthorized</h1></body></html>\r\n".encode())
+                connectionSocket.close()
+        
         # Extract the path of the requested object from the message
         # The path is the second part of HTTP header, identified by [1]
         filename = message.split()[1]
@@ -102,7 +111,7 @@ while True:
 
         # Close the client connection socket
         connectionSocket.close()
-
+            
     except IOError as error:
         # Send HTTP response message for file not found
         connectionSocket.send("HTTP/1.1 404 Not Found\r\n\r\n".encode())

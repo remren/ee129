@@ -1,6 +1,11 @@
 from socket import *
-import sys # In order to terminate the program
+import sys  # In order to terminate the program
 import select  # To handle user input and server requests
+
+"""
+NOTE: Needs to be ran on a Linux/Unix machine. Windows does not allow select to operate
+##       on non-socket objects, so the stdin doesn't work. >:(
+"""
 
 # Create a TCP server socket
 # (AF_INET is used for IPv4 protocols)
@@ -18,6 +23,7 @@ serverSocket.listen(1)
 # Login Statistics File
 statfile = "logindata.txt"
 
+
 # Handle Login Data
 def readLoginData():
     try:
@@ -29,9 +35,11 @@ def readLoginData():
     except IOError:
         return 0, 0
 
+
 def writeLoginData(success, failed):
     with open(statfile, 'w') as f:
         f.write(f"{success}\n{failed}\n")
+
 
 while True:
     # Server should be up and running and listening to the incoming connections

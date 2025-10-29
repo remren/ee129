@@ -51,10 +51,10 @@ while True:
             elif cmd == "help":
                 print(
                     """
-                    *** SERVER COMMAND HELP ***\n
-                    help - show this help message\n
-                    exit - terminate server and stop all connections\n
-                    *** ------------------- ***
+*** SERVER COMMAND HELP ***\n
+help - show this help message\n
+exit - terminate server and stop all connections\n
+*** ------------------- ***
                     """)
             else:
                 print(f"{cmd}: Command Not Found")

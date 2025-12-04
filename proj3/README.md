@@ -6,7 +6,7 @@ Requirements: Python, required packages in requirements.txt
 1. Start the mosquitto MQTT broker that is packaged with this folder, which will act as the server.
    1. This unfortunately requires Windows to use this specific broker. Alternatives should be good to use, however instructions will not be provided.
    2. Open Powershell and navigate into the folder "mosquitto" depending on file structure, e.g. final path should have: "cd proj3/mosquitto-master"
-   3. To start the broker (Port set to 1883 in .conf) type in Powershell: .\mosquitto -c mosquitto.conf -v
+   3. To start the broker (Port set to 1883 in .conf) type in Powershell: .\mosquitto -c mosquitto.conf.txt -v
       3. To find the PID of a rogue mosquitto task running on Port 1883 (will be last number):
       netstat -ano | findstr ":1883"
       4. To kill a specific PID (replace the whole [PID]):

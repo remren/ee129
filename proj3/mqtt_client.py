@@ -113,6 +113,8 @@ try:
         elif user_input.lower() == 'n':
             print("Enter the address for the broker:")
             broker = input("> ")
+            print("Enter the address for the port:")
+            port = input("> ")
             print("\nEnter your topic:")
             topic = input("> ")
             print("\nEnter your username:")
